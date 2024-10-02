@@ -210,7 +210,7 @@ export function SpeechToText() {
 		speechRecognitionList.addFromString(grammar);
 		setStopCommands(stopChoices);
 
-		// console.log(stopChoices);
+		console.log(stopChoices);
 	}, [storedChoices])
 
 	// handles the comparison from the choices
@@ -262,7 +262,7 @@ export function SpeechToText() {
 										if (webkitTranscript.toLowerCase().includes(partial.toLowerCase())) {
 											// stopListening();
 											stopRecording();
-											// console.log("ISSUED STOP COMMAND: " + Object.values(stopCommands)[i]);
+											console.log("ISSUED STOP COMMAND: " + Object.values(stopCommands)[i]);
 											document.getElementById('free_input')?.setAttribute('value', command);
 											
 											var transcriptionContainer = document.getElementById('transcription-p');
@@ -282,7 +282,7 @@ export function SpeechToText() {
 									if (webkitTranscript.toLowerCase().includes(partial.toLowerCase())) {
 										// stopListening();
 										stopRecording();
-										// console.log("ISSUED STOP COMMAND: " + Object.values(stopCommands)[i]);
+										console.log("ISSUED STOP COMMAND: " + Object.values(stopCommands)[i]);
 										document.getElementById('free_input')?.setAttribute('value', command);
 
 										var transcriptionContainer = document.getElementById('transcription-p');
