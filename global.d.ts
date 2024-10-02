@@ -12,6 +12,7 @@ declare global {
 			CX_BOT_ID: string
 			LOG_LEVEL?: LogLevel
 			ASR_API: string
+			REACT_APP_SPEECH_API?: string
 		}
 	}
 }

@@ -228,7 +228,7 @@ export function SpeechToText() {
 				const splitCommands = Object.keys(stopCommands);
 				for (let i = 0; i < splitCommands.length; i++) {
 					const command = Object.values(stopCommands)[i] as string;
-					if (command.trimEnd().toLowerCase().includes(" ") && command.trimEnd().toLowerCase().replaceAll(" ", "_") in synonyms) {
+					if (command.trimEnd().includes(" ") && command.trimEnd().toLowerCase().replaceAll(" ", "_") in synonyms) {
 						const synonymsArray = synonyms[command.trimEnd().toLowerCase().replaceAll(" ", "_")];
 						for (let ii = 0; ii < synonymsArray.length; ii++) {
 							const partial = synonymsArray[ii];

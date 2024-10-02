@@ -2,6 +2,7 @@
 
 import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useChatActions, useIsMuted, usePrompt, useVoice } from './store'
+import { getSpeechToken } from '../api/auth/ttsauth';
 import axios from "axios";
 
 type PromptMessageProps = {
@@ -26,9 +27,12 @@ export function PromptMessage({ prompt, voice, ...props }: PromptMessageProps) {
 	const [audioUrl, setAudioUrl] = useState(null);
 	const [audioElement, setAudioElement] = useState(new Audio());
 
+	const apiKey = getSpeechToken();
 
-	const apiKey = process.env.GOOGLE_SPEECH_API_KEY;
-	
+	//console.log("API: \n")
+	//console.log(apiKey);
+	//console.log(ttsAuth);
+	console.log(getSpeechToken())
 	const synthesizeSpeech = async (textToConvert: string) => {
 		const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`;
 		setText(textToConvert);
