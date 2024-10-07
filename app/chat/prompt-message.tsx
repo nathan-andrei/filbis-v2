@@ -29,10 +29,6 @@ export function PromptMessage({ prompt, voice, ...props }: PromptMessageProps) {
 
 	const apiKey = getSpeechToken();
 
-	//console.log("API: \n")
-	//console.log(apiKey);
-	//console.log(ttsAuth);
-	console.log(getSpeechToken())
 	const synthesizeSpeech = async (textToConvert: string) => {
 		const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`;
 		setText(textToConvert);
