@@ -50,9 +50,9 @@ export function PromptMessage({ prompt, voice, ...props }: PromptMessageProps) {
 		  const response = await axios.post(url, requestData);
 		  const audioContent = response.data.audioContent;
 		  audioElement.src = `data:audio/mp3;base64,${audioContent}`;
-		  audioElement.play();
-		  console.log("Started talking");
-		  setTalking(true);
+		  audioElement.play()
+					.then(() => {console.log("started talking"); setTalking(true)})
+					.catch((error) => console.log('Error playing audio:', error));
 		} catch (error) {
 		  console.error("Error synthesizing speech:", error);
 		}
@@ -122,9 +122,9 @@ export function PromptMessage({ prompt, voice, ...props }: PromptMessageProps) {
 							if (audioSource) {
 								audioElement.setAttribute('src', audioSource);
 								audioElement.load();
-								audioElement.play().catch((error) => console.error('Error playing audio:', error));
-								console.log("started talking");
-								setTalking(true);
+								audioElement.play()
+										.then(() => {console.log("started talking"); setTalking(true)})
+										.catch((error) => console.error('Error playing audio:', error));
 							} else {
 								console.error('No audio source found');
 							}
