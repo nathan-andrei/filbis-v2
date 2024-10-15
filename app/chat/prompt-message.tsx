@@ -3,6 +3,9 @@
 import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useChatActions, useIsMuted, usePrompt, useVoice } from './store'
 import { getSpeechToken } from '../api/auth/ttsauth';
+import {
+	SpeakerHigh
+} from '@phosphor-icons/react'
 import axios from "axios";
 
 type PromptMessageProps = {
@@ -152,7 +155,7 @@ export function PromptMessage({ prompt, voice, ...props }: PromptMessageProps) {
 		<>
 			<p {...props}>{storedPrompt}</p>
 			<audio ref={player}></audio>
-			{ isTalking ? <p>(Currently talking)</p> : <></>}
+			{ isTalking ? <SpeakerHigh size={128} /> : <></>}
 		</>
 	)
 }
