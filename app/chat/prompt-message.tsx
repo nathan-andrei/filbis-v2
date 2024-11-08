@@ -155,7 +155,7 @@ export function PromptMessage({ prompt, voice, ...props }: PromptMessageProps) {
 		<>
 			<p {...props}>{storedPrompt}</p>
 			<audio ref={player}></audio>
-			{ isTalking ? <SpeakerHigh size={128} /> : <></>}
+			{ isTalking ? <SpeakerHigh size={64} /> : <></>}
 		</>
 	)
 }
